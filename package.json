@@ -1,7 +1,23 @@
 {
   "name": "zibda-platform",
   "version": "1.0.0",
+  "description": "Zibda Platform - 부동산 공실 관리 플랫폼",
+  "main": "index.html",
   "scripts": {
-    "build": "echo 'Static site - no build needed'"
+    "dev": "echo 'Static site - no dev server needed'",
+    "build": "echo 'Static site - no build needed'",
+    "start": "echo 'Static site ready'"
+  },
+  "keywords": [
+    "zibda",
+    "부동산",
+    "공실",
+    "관리",
+    "청주"
+  ],
+  "author": "Yunbro",
+  "license": "ISC",
+  "engines": {
+    "node": ">=18.0.0"
   }
 }

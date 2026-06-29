@@ -1,0 +1,1 @@
+REVOKE SELECT (note) ON public.properties FROM anon;

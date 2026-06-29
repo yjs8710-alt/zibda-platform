@@ -1,0 +1,1 @@
+ALTER TABLE public.cheongju_contacts ADD COLUMN IF NOT EXISTS building_dong text DEFAULT NULL;

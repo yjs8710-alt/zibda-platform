@@ -1,0 +1,59 @@
+<!--
+  ============================================================
+  AndroidManifest.xml 권한 스니펫 (Zibda 집다)
+  ============================================================
+  사용법:
+    1. PC에서 `npx cap add android` 실행 후
+       android/app/src/main/AndroidManifest.xml 파일을 엽니다.
+    2. <manifest ...> 여는 태그 바로 아래(<application> 위)에
+       아래 <uses-permission> / <uses-feature> 블록을 붙여넣습니다.
+    3. <application ...> 태그의 속성에 아래 값들이 들어있는지 확인합니다:
+         android:label="집다"
+         android:usesCleartextTraffic="false"
+    4. <activity android:name=".MainActivity" ...> 에 아래
+       <intent-filter> 가 그대로 있는지 확인 (Capacitor 가 자동 생성).
+  ============================================================
+-->
+
+<!-- ===== 네트워크 ===== -->
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+<!-- ===== 카메라 / 사진 업로드 ===== -->
+<uses-permission android:name="android.permission.CAMERA" />
+<uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+<uses-permission
+    android:name="android.permission.READ_EXTERNAL_STORAGE"
+    android:maxSdkVersion="32" />
+
+<!-- ===== 위치 ===== -->
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+<!-- ===== 전화걸기 (tel: 링크) ===== -->
+<uses-permission android:name="android.permission.CALL_PHONE" />
+
+<!-- ===== 알림 (Android 13+) ===== -->
+<uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+<uses-permission android:name="android.permission.VIBRATE" />
+
+<!-- ===== 하드웨어 (Play Store 필터링용, 필수 아님) ===== -->
+<uses-feature android:name="android.hardware.camera" android:required="false" />
+<uses-feature android:name="android.hardware.location" android:required="false" />
+<uses-feature android:name="android.hardware.location.gps" android:required="false" />
+
+<!-- ===== tel:, mailto: 외부 인텐트 허용 (Android 11+) ===== -->
+<queries>
+    <intent>
+        <action android:name="android.intent.action.DIAL" />
+        <data android:scheme="tel" />
+    </intent>
+    <intent>
+        <action android:name="android.intent.action.SENDTO" />
+        <data android:scheme="mailto" />
+    </intent>
+    <intent>
+        <action android:name="android.intent.action.VIEW" />
+        <data android:scheme="https" />
+    </intent>
+</queries>

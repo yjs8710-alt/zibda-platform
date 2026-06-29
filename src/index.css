@@ -1,0 +1,195 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ── 배경/전경 ── */
+    --background: 220 18% 96%;
+    --foreground: 222 28% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 28% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 28% 11%;
+
+    /* ── 프라이머리 — 딥 네이비 ── */
+    --primary: 220 90% 20%;
+    --primary-foreground: 0 0% 100%;
+
+    /* ── 세컨더리 ── */
+    --secondary: 216 28% 93%;
+    --secondary-foreground: 220 90% 20%;
+
+    /* ── Muted ── */
+    --muted: 216 16% 93%;
+    --muted-foreground: 218 14% 48%;
+
+    /* ── 액센트 — 활기찬 오렌지 ── */
+    --accent: 22 100% 52%;
+    --accent-foreground: 0 0% 100%;
+
+    /* ── 위험 ── */
+    --destructive: 0 82% 57%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 218 16% 87%;
+    --input: 218 16% 87%;
+    --ring: 220 90% 20%;
+
+    --radius: 0.5rem;
+
+    /* ── 헤더 ── */
+    --header-bg: 220 92% 16%;
+    --header-border: 220 72% 23%;
+
+    /* ── 사이드바 ── */
+    --sidebar-background: 220 90% 20%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 22 100% 52%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 68% 28%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 220 68% 26%;
+    --sidebar-ring: 22 100% 52%;
+
+    /* ── 기타 ── */
+    --hero-overlay: 220 90% 10%;
+    --badge-new: 152 58% 38%;
+    --badge-hot: 0 82% 52%;
+    --card-shadow: 0 1px 12px 0 hsl(220 90% 20% / 0.07);
+    --card-shadow-hover: 0 6px 28px 0 hsl(220 90% 20% / 0.16);
+
+    /* ── 차트 / 상태 색상 ── */
+    --chart-1: 220 70% 50%;
+    --chart-2: 142 71% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+
+    /* ── SaaS 전용 토큰 ── */
+    --surface: 220 20% 98%;
+    --surface-elevated: 0 0% 100%;
+    --toolbar-bg: 220 16% 97%;
+    --stat-blue: 217 91% 60%;
+    --stat-green: 142 71% 45%;
+    --stat-orange: 25 95% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+}
+
+@layer utilities {
+  .card-shadow {
+    box-shadow: var(--card-shadow);
+  }
+  .card-shadow-hover {
+    box-shadow: var(--card-shadow-hover);
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 4px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.4);
+  }
+  /* SaaS 앱 공통 */
+  .saas-panel {
+    background: hsl(var(--surface-elevated));
+    border: 1px solid hsl(var(--border));
+    border-radius: 10px;
+    box-shadow: 0 1px 8px hsl(220 90% 20% / 0.06);
+  }
+  .toolbar-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--surface-elevated));
+    color: hsl(var(--foreground));
+    transition: all 0.15s;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .toolbar-btn:hover {
+    background: hsl(var(--secondary));
+    border-color: hsl(var(--primary) / 0.3);
+    color: hsl(var(--primary));
+  }
+  .toolbar-btn-primary {
+    background: hsl(var(--primary));
+    border-color: hsl(var(--primary));
+    color: #fff;
+  }
+  .toolbar-btn-primary:hover {
+    background: hsl(var(--primary) / 0.88);
+    color: #fff;
+  }
+}
+
+/* 전역 길게 누르기/복사/드래그/저장 차단 (protect-on 클래스가 body에 있을 때만 적용) */
+html, body {
+  -webkit-tap-highlight-color: transparent;
+}
+body.protect-on, body.protect-on {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/* 입력 가능한 요소는 예외 처리 */
+body.protect-on input,
+body.protect-on textarea,
+body.protect-on [contenteditable="true"] {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+body.protect-on img {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+/* 검색창 자동완성/추천 드롭다운 숨김 */
+input::-webkit-calendar-picker-indicator { display: none !important; }
+input::-webkit-list-button { display: none !important; }
+
+
+/* 매물카드 클릭 시 지도 핀 깜빡임 */
+@keyframes pin-blink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.25; transform: scale(1.35); }
+}

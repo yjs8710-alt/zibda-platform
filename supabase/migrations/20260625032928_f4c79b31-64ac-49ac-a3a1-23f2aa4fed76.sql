@@ -1,0 +1,1 @@
+REVOKE SELECT (landlord_phone) ON public.properties FROM anon;

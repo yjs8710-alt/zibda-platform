@@ -1,0 +1,1 @@
+UPDATE properties SET images = '{}' WHERE id = '85d3bb19-edeb-471a-86d8-0b35c7f6c80b';

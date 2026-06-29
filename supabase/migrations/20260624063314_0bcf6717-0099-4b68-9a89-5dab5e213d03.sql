@@ -1,0 +1,1 @@
+ALTER TABLE public.chat_conversations DROP CONSTRAINT IF EXISTS chat_conversations_user_id_key;

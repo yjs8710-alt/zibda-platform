@@ -1,0 +1,1 @@
+ALTER TABLE public.agent_profiles ADD COLUMN agency_phone text DEFAULT '';

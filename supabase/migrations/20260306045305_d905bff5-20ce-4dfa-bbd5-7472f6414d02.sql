@@ -1,0 +1,4 @@
+
+ALTER TABLE public.properties
+  ADD COLUMN IF NOT EXISTS dong text NOT NULL DEFAULT '',
+  ADD COLUMN IF NOT EXISTS lot_number text NOT NULL DEFAULT '';

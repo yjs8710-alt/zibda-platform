@@ -1,0 +1,1 @@
+ALTER TABLE public.cheongju_contacts DROP CONSTRAINT IF EXISTS cheongju_contacts_dong_lot_unit_unique;

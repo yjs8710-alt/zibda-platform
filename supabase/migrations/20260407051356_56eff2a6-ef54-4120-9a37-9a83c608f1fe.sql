@@ -1,0 +1,2 @@
+ALTER TABLE public.property_reports DROP CONSTRAINT IF EXISTS property_reports_status_check;
+ALTER TABLE public.property_reports ADD CONSTRAINT property_reports_status_check CHECK (status IN ('pending', 'reviewed', 'resolved', 'rejected'));

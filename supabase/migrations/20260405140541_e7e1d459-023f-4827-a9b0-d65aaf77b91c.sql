@@ -1,0 +1,1 @@
+DROP POLICY IF EXISTS "Approved agents can delete own properties" ON public.properties;
